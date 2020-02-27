@@ -17,7 +17,7 @@ namespace MicroFinBank.App_Start
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<Function>().As<IFunction>().InstancePerRequest();
-            builder.RegisterType<MicroFinDbEntities2>().InstancePerRequest();
+            builder.RegisterType<MicroFinDbEntities>().InstancePerRequest();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

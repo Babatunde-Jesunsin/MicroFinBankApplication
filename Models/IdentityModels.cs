@@ -26,7 +26,7 @@ namespace MicroFinBank.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("MicroFinDbEntities2", throwIfV1Schema: false)
+            : base("MicroFinDbEntities", throwIfV1Schema: false)
         {
         }
 
