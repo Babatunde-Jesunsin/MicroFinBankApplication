@@ -46,23 +46,23 @@ namespace MicroFinBank
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "34e56d87-4222-41e0-9715-5f07e357220f",
+                clientSecret: "e1CMW-817jYoizj=VbWlX[/kOiFZCXpk");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+                appId: "504653696900552",
+                appSecret: "3235be634d424122a8d6c71759f66e36");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "987228699119-u1o7qv3d7ku7a2c9glvsp899ea1kbr93.apps.googleusercontent.com",
+                ClientSecret = "BRguJ4DcifJ1UCffZu4zUXbI"
+            });
         }
     }
 }
