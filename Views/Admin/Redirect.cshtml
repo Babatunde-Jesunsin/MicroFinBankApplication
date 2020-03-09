@@ -1,0 +1,30 @@
+﻿@using BankData.Entities
+@model BankData.Entities.AccountStatement
+@{
+    ViewBag.Title = "Redirect";
+}
+@{
+    var accountDetails = (Account)Session["AccountDetails"];
+    var usersDetails = (AspNetUser)Session["UserDetail"];
+    string name = accountDetails.AccountType;
+    var statements = (IEnumerable<AccountStatement>) Session["Statement"];
+}
+
+<h2>User's Details</h2>
+<div class="d-flex justify-content-center">
+
+    <img src="/Content/images/ts1.jpg" class="img-fluid rounded-circle" alt="" />
+
+</div>
+<p> First Name: @usersDetails.FirstName</p>
+<p>Last Name: @usersDetails.LastName</p>
+<p>Email: @usersDetails.Email</p>
+<p>ID: @usersDetails.Id</p>
+<p>@usersDetails.Passport</p>
+<p>Phone Number: @usersDetails.PhoneNumber</p>
+<p>Open Account Date: @accountDetails.CreatedOn</p>
+<h2>Account Details</h2>
+<p>Account Number: @accountDetails.AccountNumber</p>
+<p>Account Type: @accountDetails.AccountType</p>
+<p>Status: @accountDetails.Status</p>
+<script src="/Content/js/bootstrap.js"></script>

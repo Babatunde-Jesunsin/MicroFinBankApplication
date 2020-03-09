@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BankData.Entities.Account>
+
+@{
+    ViewBag.Title = "UserBalance";
+}
+
+<h2>UserBalance</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@Html.DisplayNameFor(model => model.Balance)
+@*@Html.DisplayFor(model => model.)*@
+@String.Format("{0:C}",Convert.ToDecimal(ViewBag.Balance))
