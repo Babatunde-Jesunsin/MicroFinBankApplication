@@ -82,10 +82,11 @@ namespace MicroFinBank.Controllers
            if (userPassword == password)
            {
                var newAmount = Convert.ToDecimal(amount);
-               string response =   _account.TransferAccount(newAmount, item.AccountNumber, id);
-
-            ViewBag.response = response; 
-            _statement.Add(acct.AccountNumber,"jnjnj",item.AccountNumber,"ygjh");
+               List<string> response =   _account.TransferAccount(newAmount, item.AccountNumber, id);
+               string statement1 = response[0];
+               string statement2 = response[1];
+            ViewBag.response = response[1]; 
+            _statement.Add(acct.AccountNumber,statement1,item.AccountNumber, statement2);
             
 
             return RedirectToAction("Index","Home");
@@ -107,6 +108,12 @@ namespace MicroFinBank.Controllers
           decimal accountBalance = _account.Get(id).Balance;
           ViewBag.Balance = accountBalance;
             return View();
+        }
+
+        public ActionResult Statement(string id)
+        {
+          var  userStatement=  _statement.Get(id);
+            return View(userStatement);
         }
 
     }
