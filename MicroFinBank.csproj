@@ -321,6 +321,7 @@
     <Content Include="Views\Admin\Redirect.cshtml" />
     <Content Include="Views\Admin\ChangeStatus.cshtml" />
     <Content Include="Views\Admin\Deposit.cshtml" />
+    <Content Include="Views\Admin\Withdraw.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

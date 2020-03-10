@@ -66,6 +66,8 @@ namespace MicroFinBank.Controllers
         [HttpPost]
         public ActionResult ChangeStatus(string status, string accountNumber)
         {
+            var account = _account.GetByAccountNumber(accountNumber);
+            string id = account.UserId;
             bool response = _account.EditStatus(accountNumber, status);
             if (response == false)
             {
@@ -75,20 +77,32 @@ namespace MicroFinBank.Controllers
 
             return RedirectToAction("Index", "Admin");
         }
-        [Authorize]
+        
         [HttpGet]
         public ActionResult Deposit()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Deposit(decimal amount, string accountNumber)
+        public ActionResult Deposit(decimal amount, string accountNumber, string depositorName)
         {
-          string statement=  _account.MakeDeposit(accountNumber, amount);
+          string statement=  _account.MakeDeposit(accountNumber, amount,depositorName);
           string response = _statement.AddStatement(accountNumber, statement);
           return RedirectToAction("Index", "Admin");
         }
+        [HttpGet]
+        public ActionResult  Withdraw()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Withdraw(string accountNumber, decimal amount)
+        {
+           string statement= _account.MakeWithdrawal(accountNumber, amount);
+           string response = _statement.AddStatement(accountNumber, statement);
+           return RedirectToAction("Index", "Admin");
 
+        }
 
     }
 }
