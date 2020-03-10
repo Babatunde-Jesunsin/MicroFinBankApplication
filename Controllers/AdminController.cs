@@ -75,6 +75,20 @@ namespace MicroFinBank.Controllers
 
             return RedirectToAction("Index", "Admin");
         }
+        [Authorize]
+        [HttpGet]
+        public ActionResult Deposit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Deposit(decimal amount, string accountNumber)
+        {
+          string statement=  _account.MakeDeposit(accountNumber, amount);
+          string response = _statement.AddStatement(accountNumber, statement);
+          return RedirectToAction("Index", "Admin");
+        }
+
 
     }
 }

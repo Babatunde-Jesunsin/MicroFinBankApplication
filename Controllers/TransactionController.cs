@@ -82,11 +82,7 @@ namespace MicroFinBank.Controllers
            if (userPassword == password)
            {
                var newAmount = Convert.ToDecimal(amount);
-               
-               
-
-
-            string response =   _account.TransferAccount(newAmount, item.AccountNumber, id);
+               string response =   _account.TransferAccount(newAmount, item.AccountNumber, id);
 
             ViewBag.response = response; 
             _statement.Add(acct.AccountNumber,"jnjnj",item.AccountNumber,"ygjh");
