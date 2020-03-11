@@ -323,6 +323,8 @@
     <Content Include="Views\Admin\Deposit.cshtml" />
     <Content Include="Views\Admin\Withdraw.cshtml" />
     <Content Include="Views\Transaction\Statement.cshtml" />
+    <Content Include="Views\Admin\Statement.cshtml" />
+    <Content Include="Views\Admin\ViewStatement.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

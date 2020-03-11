@@ -103,6 +103,28 @@ namespace MicroFinBank.Controllers
            return RedirectToAction("Index", "Admin");
 
         }
+        [HttpGet]
+        public ActionResult Statement()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Statement(string accountNumber)
+        {
+            Session["acctNum"] = accountNumber;
+            return RedirectToAction("ViewStatement","Admin");
+        }
+
+        public ActionResult ViewStatement()
+        {
+            string accountNumber = (string)Session["acctNum"];
+            var statements = _statement.GetByAccountNum(accountNumber);
+            if (statements == null)
+            {
+                string message = "wrong AccountNumber";
+            }
+            return View(statements);
+        }
 
     }
 }
