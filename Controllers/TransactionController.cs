@@ -113,7 +113,7 @@ namespace MicroFinBank.Controllers
         public ActionResult Statement(string id)
         {
           var  userStatement=  _statement.Get(id);
-            return View(userStatement);
+          return View(userStatement);
         }
 
     }
